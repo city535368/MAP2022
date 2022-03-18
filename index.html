@@ -5,6 +5,7 @@
 	<meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
+	<script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="map" style="height: 600px;"></div>
@@ -52,6 +53,7 @@ const popup = L.popup();
 function onMapClick(e) {
   let lat = e.latlng.lat; // 緯度
   let lng = e.latlng.lng; // 經度
+  ThunkableWebviewerExtension.postMessage(lat + "," + lng);
   popup
     .setLatLng(e.latlng)
     .setContent(`緯度：${lat}<br/>經度：${lng}`)
